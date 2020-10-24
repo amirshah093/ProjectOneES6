@@ -1,0 +1,64 @@
+body{
+    margin:0px;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(221, 221, 221);
+}
+
+.container{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 100%;
+
+}
+#login-box{
+    display: none;
+}
+#sign-up-box{
+    display: none;
+}
+
+.login-box{
+    display: block;
+}
+
+input{
+    width: 60%;
+    padding: 10px;
+    margin: 10px;
+
+}
+
+button{
+    background-clip: blue;
+    color: blue;
+}
+
+.term{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+#checkbox{
+    width: 5%;
+}
+
+button{
+    padding: 10px 80px;
+    width: 50%;
+    border: solid blue 1px;
+    background-color: white;
+}
+button:hover{
+    padding: 10px 50px;
+    color: white;
+    border: solid rgb(245, 245, 246) 1px;
+    background-color: rgb(27, 55, 184);
+}
