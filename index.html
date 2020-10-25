@@ -9,10 +9,13 @@
 <body>
     <div class="container">
         <div class="main">
-            <h1 class="title"> To Do List</h1>
-                <p>Please Login to manage your account or Sign Up if you are new here</p>
-                <button id="login">Login</button>
-                <button id="sign-up" >Sign Up</button>
+            <h1 class="title"> To Do List App</h1>
+                <div id="header">
+
+                    <p>Please Login to manage your account or Sign Up if you are new here</p>
+                    <button id="login">Login</button>
+                    <button id="sign-up" >Sign Up</button>
+                </div>
                 <div id="login-box">
                     <form action="">
                         <h3>Pleas enter User name and password</h3>
@@ -22,18 +25,40 @@
                     </form>
                 </div>
                 <div id="sign-up-box">
-                    <h3> Registration Form</h3>
-                    <form action="">
-                        <input type="text" placeholder="First Name" id="FName" name="Fname">
-                        <input type="text" placeholder="Last Name" id="LName" name="LName">
-                        <input type="text" placeholder="Enter your Email" id="email" name="email">
-                        <input type="password" placeholder="Password" id="password" name="password">
+                    <h3 id="regHeader"> Registration Form</h3>
+                    <form role="form" onsubmit="signUpData(event);">
+                        <input type="text" placeholder="First Name" id="fName" name="fName" required>
+                        <input type="text" placeholder="Last Name" id="lName" name="lName" required>
+                        <input type="text" placeholder="Enter your Email" id="email" name="email" required>
+                        <input type="password" placeholder="Password" id="password" name="password" required>
                         <div class="term">
                             <input type="checkbox" id="checkbox" id="checkbox" name="checkbox">
-                            <p>I'm Agree to the Term & Condition of this site</p>
+                            <p>I agree to the Terms of Use</p>
                         </div>
-                        <button type="submit">Register</button>
+                        <button id="register" type="submit">Register</button>
                     </form>
+                </div>
+                <div id="dashboard">
+                    <h1>User Dashboard</h1>
+                    <div class="dashMain">
+                        <div id="profileData">
+                            <h3>Your Profile details</h3>
+                          
+                        </div>
+                        <div id="toDoList">
+                            <h3>Add Items</h3>
+                            <div class="dotoItemsFort">
+                                <input id="addItemsInput" type="text" placeholder="Add Item....">
+                                <button id="addItemsButton">Add</button>
+                                <button style="display: none;" id="saveItemsButton">Save</button>
+                            </div>
+                            <div class="items">
+                                <table id="itemsTable">
+                                    
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
         </div>
     </div>

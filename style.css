@@ -6,6 +6,10 @@ body{
     background-color: rgb(221, 221, 221);
 }
 
+h1{
+    color: rgb(1, 102, 136);
+}
+
 .container{
     text-align: center;
     display: flex;
@@ -55,10 +59,73 @@ button{
     width: 50%;
     border: solid blue 1px;
     background-color: white;
+    margin: 15px;
 }
 button:hover{
-    padding: 10px 50px;
+    padding: 10px 80px;
+    width: 50%;
     color: white;
     border: solid rgb(245, 245, 246) 1px;
     background-color: rgb(27, 55, 184);
+}
+
+#profileData{
+    
+}
+
+#dashboard{
+    text-align: center;
+    padding: 40px;
+    background-color: white;
+    height: 500px;
+    
+
+}
+.dashMain{
+    display: flex;
+
+}
+
+td{
+    text-align: left;
+    padding-bottom: 10px;
+    border-bottom: 1px solid gray;
+    width: 40%;
+}
+
+#editProfile{
+    width: 200px;
+    padding: 10px 30px;
+}
+
+#addItemsButton{
+    padding: 5px 5px !important;
+    border-color: green;
+    color: green;
+    margin: 10px;
+    
+}
+#saveItemsButton{
+    padding: 5px 5px !important;
+    border-color: green;
+    color: green;
+    margin: 10px;
+    
+}
+
+
+
+.dotoItemsFort{
+    display: flex;
+}
+.itemButton{
+    padding: 5px;
+    margin: 1px;
+    width: 80px;
+}
+.itemButton:hover{
+    padding: 5px;
+    margin: 1px;
+    width: 80px;
+    color: white;
 }
