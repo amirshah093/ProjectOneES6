@@ -21,6 +21,8 @@ h1{
 }
 #login-box{
     display: none;
+    text-align: center;
+
 }
 #sign-up-box{
     display: none;
@@ -28,6 +30,12 @@ h1{
 
 .login-box{
     display: block;
+}
+
+#error{
+    color: red;
+    display: none;
+
 }
 
 input{
@@ -70,7 +78,7 @@ button:hover{
 }
 
 #profileData{
-    
+   margin-right: 100px; 
 }
 
 #dashboard{
@@ -78,11 +86,21 @@ button:hover{
     padding: 40px;
     background-color: white;
     height: 500px;
+    display: none;
     
 
 }
 .dashMain{
     display: flex;
+
+}
+#logout{
+    float: right;
+    padding: 5px;
+    margin: 1px;
+    margin-top: -80px;
+    width: 80px;
+    display: inline-block;
 
 }
 

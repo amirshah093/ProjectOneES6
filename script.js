@@ -9,14 +9,13 @@ signUpButton.addEventListener("click", signUpBoxDisplay);
 
 
 function signUpBoxDisplay (e){
-    if(signUpButton.innerHTML === "Sign Up"){
-        console.log("Sign up  button is working")
+    if(signUpData){
         signUpBox.style.display = "block"
         loginButton.style.display = "none"
         signUpButton.style.display = "none"
     }
-    else if(loginButton.innerHTML === Logout){
-        alert("hi you have loged out success full")
+    else{
+        alert("Please Fill the Form Curectly !")
     }
 }
 
@@ -47,7 +46,7 @@ const signUpData = (e) => {
  
 }
 
-
+//Profile Data
 function profileData (){
     let {fName, lName, email, password} = JSON.parse(localStorage.getItem('formDataa'));
     let outPut = document.getElementById("profileData");
@@ -89,7 +88,30 @@ function profileData (){
     document.getElementById("dashboard").style.display = "block"
 }
 
-// To Do List Starts Here
+//login form submission
+const userNameInput = document.getElementById("userNameInput");
+const passwordInput = document.getElementById("passwordInput");
+const error = document.getElementById("error");
+
+function loginSubmissio (e){
+    let {email, password} = JSON.parse(localStorage.getItem('formDataa'));
+    if(  userNameInput.value  != email && passwordInput.value != password){
+        error.style.display = "block"
+        
+        e.preventDefault()
+    }
+    
+    else{
+    document.getElementById("dashboard").style.display = "block"
+    e.preventDefault();
+    profileData();
+    loginBox.style.display = "none"
+    loginButton.style.display = "none"
+    document.getElementById("header").style.display = "none"}
+}
+
+
+// To Do List Starts Here >
 const addItemsInput = document.getElementById("addItemsInput");
 const addItemsButton = document.getElementById("addItemsButton");
 addItemsButton.addEventListener("click", function(){
@@ -105,9 +127,11 @@ addItemsButton.addEventListener("click", function(){
         localStorage.setItem("localtask", JSON.stringify(taskObject));
     }
     showItems();
+    addItemsInput.value = '';
     
 })
 
+//show Items
 function showItems (){
     let webtask = localStorage.getItem("localtask");
     if(webtask == null){
@@ -122,21 +146,59 @@ function showItems (){
         <tr>
             <th>${ind}</th>
             <td>${item}</td>
-            <td> <button onclick="editItemButton();" class="itemButton">Edit</button> </td>
-            <td> <button class="itemButton">Delete</button> </td>
+            <td> <button onclick="editItemButton(${ind});" class="itemButton">Edit</button> </td>
+            <td> <button onclick="deleteItemButton(${ind});" class="itemButton">Delete</button> </td>
         </tr>
         `;
     });
     itemsTable.innerHTML = html;
 }
 
+//edit item
 function editItemButton(ind){
-    document.getElementById("saveItemsButton").style.display = "block"
-    document.getElementById("addItemsButton").style.display = "none"
+    let saveItemIndex = document.getElementById("saveItemsButton");
+    let addItemBtn = document.getElementById("addItemsButton");
+    let saveEditedItem = document.getElementById("saveEditedItem");
+    saveEditedItem.value = ind;
     let webtask = localStorage.getItem("localtask");
     let taskObject = JSON.parse(webtask);
     addItemsInput.value = taskObject[ind];
+    addItemBtn.style.display = "none";
+    saveItemIndex.style.display = "block";
 }
+
+let addItemBtn = document.getElementById("saveItemsButton");
+addItemBtn.addEventListener("click", function(){
+    let webtask = localStorage.getItem("localtask");
+    let taskObject = JSON.parse(webtask);
+    let saveEditedItem = document.getElementById("saveEditedItem").value;
+    taskObject[saveEditedItem] = addItemsInput.value;
+    localStorage.setItem("localtask", JSON.stringify(taskObject));
+    addItemBtn.style.display = "none"
+    document.getElementById("addItemsButton").style.display = "block"
+    addItemsInput.value = '';
+    showItems();
+})
+
+// delete item
+function deleteItemButton (ind){
+    let webtask = localStorage.getItem("localtask");
+    let taskObject = JSON.parse(webtask);
+    taskObject.splice(ind, 1);
+    localStorage.setItem("localtask", JSON.stringify(taskObject));
+    showItems();
+}
+
+const logoutButton = document.getElementById("logout");
+logoutButton.addEventListener("click", logoutClicked);
+
+function logoutClicked () {
+    location.reload();
+}
+
+
+
+
 
 
 

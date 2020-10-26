@@ -9,9 +9,10 @@
 <body>
     <div class="container">
         <div class="main">
-            <h1 class="title"> To Do List App</h1>
-                <div id="header">
+            <h1 class="title"> To Do List App Project#1 ES6</h1>
+            <P>Prepaired by Amir Shah "Shah"</P>
 
+                <div id="header">
                     <p>Please Login to manage your account or Sign Up if you are new here</p>
                     <button id="login">Login</button>
                     <button id="sign-up" >Sign Up</button>
@@ -19,9 +20,10 @@
                 <div id="login-box">
                     <form action="">
                         <h3>Pleas enter User name and password</h3>
-                        <input type="text" placeholder="Enter your Email">
-                        <input type="password" placeholder="Password">
-                        <button type="submit">Login</button>
+                        <input id="userNameInput" type="email" placeholder="Enter your Email" required>
+                        <input id="passwordInput" type="password" placeholder="Password" required>
+                        <button onclick="loginSubmissio(event);" type="submit">Login</button>
+                        <h2 id="error">Login details not Matched !</h2>
                     </form>
                 </div>
                 <div id="sign-up-box">
@@ -29,7 +31,7 @@
                     <form role="form" onsubmit="signUpData(event);">
                         <input type="text" placeholder="First Name" id="fName" name="fName" required>
                         <input type="text" placeholder="Last Name" id="lName" name="lName" required>
-                        <input type="text" placeholder="Enter your Email" id="email" name="email" required>
+                        <input type="email" placeholder="Enter your Email" id="email" name="email" required>
                         <input type="password" placeholder="Password" id="password" name="password" required>
                         <div class="term">
                             <input type="checkbox" id="checkbox" id="checkbox" name="checkbox">
@@ -40,6 +42,7 @@
                 </div>
                 <div id="dashboard">
                     <h1>User Dashboard</h1>
+                    <button id="logout">Logout</button>
                     <div class="dashMain">
                         <div id="profileData">
                             <h3>Your Profile details</h3>
@@ -49,6 +52,7 @@
                             <h3>Add Items</h3>
                             <div class="dotoItemsFort">
                                 <input id="addItemsInput" type="text" placeholder="Add Item....">
+                                <input id="saveEditedItem" type="hidden" >
                                 <button id="addItemsButton">Add</button>
                                 <button style="display: none;" id="saveItemsButton">Save</button>
                             </div>
